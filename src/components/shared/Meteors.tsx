@@ -11,6 +11,7 @@ interface MeteorsProps {
   maxDuration?: number;
   angle?: number;
   className?: string;
+  side?: string
 }
 
 export const Meteors = ({
@@ -21,6 +22,7 @@ export const Meteors = ({
   maxDuration = 10,
   angle = 215,
   className,
+  side
 }: MeteorsProps) => {
   const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
     [],
@@ -30,14 +32,14 @@ export const Meteors = ({
     const styles = [...new Array(number)].map(() => ({
       "--angle": angle + "deg",
       top: -5,
-      left: `calc(-50% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
+      left: side == 'left' ? `calc(-50% + ${Math.floor(Math.random() * window.innerWidth)}px)` : `calc(50% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
       animationDelay: Math.random() * (maxDelay - minDelay) + minDelay + "s",
       animationDuration:
         Math.floor(Math.random() * (maxDuration - minDuration) + minDuration) +
         "s",
     }));
     setMeteorStyles(styles);
-  }, [number, minDelay, maxDelay, minDuration, maxDuration, angle]);
+  }, [number, minDelay, maxDelay, minDuration, maxDuration, angle , side]);
 
   return (
     <>

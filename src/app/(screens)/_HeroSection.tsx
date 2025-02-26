@@ -9,26 +9,31 @@ import React, {
 } from "react";
 import { useTrail, animated } from "@react-spring/web";
 import { Meteors } from "@/components/shared/Meteors";
+import { useBreakpoint } from "@/hooks/useBreakPoint";
 
 const Trail: React.FC<{
   open: boolean;
   children: ReactNode;
   ref?: RefObject<HTMLDivElement | null>;
 }> = ({ open, children, ref }) => {
+  const { screenType } = useBreakpoint();
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2000, friction: 200 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 20,
-    height: open ? 110 : 0,
+    height: open ? (["xs", "sm"].includes(screenType) ? 50 : 110) : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
+
   return (
     <div className="w-fit flex flex-col">
       {trail.map(({ height, ...style }, index) => (
         <AnimatedDiv
           key={index}
-          className={"trailsText"}
+          className={`trailsText h-[${
+            ["xs", "sm"].includes(screenType) ? "50px" : "100px"
+          }]`}
           ref={ref}
           style={style}
         >
@@ -67,16 +72,21 @@ export default function HeroSection() {
       className={"text-container min-h-screen relative"}
       onClick={() => set((state) => !state)}
     >
-      <Meteors />
+      <Meteors side="left" />
+      <Meteors side="right" />
       <Trail open={open} ref={ref}>
-        <span className="gradient-text text-[100px]">Lorem Lipsum</span>
-        <span className="gradient-text text-[60px]">Software Engineer</span>
+        <span className="gradient-text block text-center text-[48px] md:text-[100px]">
+          Soham Patel
+        </span>
+        <span className="gradient-text block text-center text-[36px] md:text-[60px]">
+          Software Engineer
+        </span>
       </Trail>
     </div>
   );
 }
 
-const AnimatedDiv: React.FC<
+export const AnimatedDiv: React.FC<
   React.ComponentProps<typeof animated.div> & {
     children: ReactNode;
     className?: string;

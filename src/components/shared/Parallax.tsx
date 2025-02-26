@@ -6,7 +6,7 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 export default function ParallaxLayout(props: Record<string, React.ReactNode>) {
   const alignCenter = { display: "flex", alignItems: "center" };
   return (
-    <Parallax pages={2}>
+    <Parallax pages={3} className="scroller">
       <ParallaxLayer
         offset={0}
         speed={0.5}
@@ -18,9 +18,17 @@ export default function ParallaxLayout(props: Record<string, React.ReactNode>) {
       <ParallaxLayer
         offset={1}
         speed={1.5}
-        style={{ ...alignCenter, justifyContent: "flex-end" }}
+        style={{ ...alignCenter, justifyContent: "center" }}
       >
         {props.technicalSection}
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={2}
+        speed={1.5}
+        style={{ ...alignCenter, justifyContent: "flex-start" }}
+      >
+        {props.contactUsSection}
       </ParallaxLayer>
     </Parallax>
   );

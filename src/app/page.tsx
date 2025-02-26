@@ -2,6 +2,7 @@ import { DockProvider } from "@/providers/DockProvider";
 import TechStack from "./(screens)/_TechnicalSection";
 import HeroSection from "./(screens)/_HeroSection";
 import ParallaxLayout from "@/components/shared/Parallax";
+import ContactUs from "./(screens)/_ContactUs";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ParallaxLayout
         technicalSection={<TechStack />}
         heroSection={<HeroSection />}
+        contactUsSection={<ContactUs />}
       />
     </section>
   );
