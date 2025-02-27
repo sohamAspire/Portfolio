@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect, useRef, ReactNode, RefObject } from "react";
 import { useTransition } from "@react-spring/web";
 import { AnimatedDiv } from "@/app/(screens)/_HeroSection";

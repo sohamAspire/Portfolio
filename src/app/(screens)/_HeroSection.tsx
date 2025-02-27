@@ -10,6 +10,9 @@ import React, {
 import { useTrail, animated } from "@react-spring/web";
 import { Meteors } from "@/components/shared/Meteors";
 import { useBreakpoint } from "@/hooks/useBreakPoint";
+import Image from "next/image";
+import Mountains from "../../../public/mountains.png";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const Trail: React.FC<{
   open: boolean;
@@ -82,6 +85,21 @@ export default function HeroSection() {
           Software Engineer
         </span>
       </Trail>
+
+      <Parallax pages={1.2} className="scroller">
+        <ParallaxLayer offset={0.35} speed={0.5}>
+          <div className="w-full h-full absolute left-0 bottom-[-32%] z-[-50]">
+            <Image
+              alt="mountains"
+              className="w-full h-full object-cover"
+              quality={100}
+              src={Mountains}
+              width={1000}
+              height={100}
+            />
+          </div>
+        </ParallaxLayer>
+      </Parallax>
     </div>
   );
 }
