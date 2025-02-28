@@ -14,7 +14,7 @@ const TechStack = () => {
       >
         <Orbit />
       </TranslateAnimatedDiv>
-      <div className="bg-black text-white min-h-screen md:h-full flex justify-start w-full max-w-[1200px] items-center text-justify">
+      <div className="bg-black text-white min-h-screen md:h-full flex flex-col justify-start w-full max-w-[1200px] items-center text-justify">
         <TranslateAnimatedDiv
           className="mx-auto w-full py-10 xl:py-4 px-6 xl:px-10 "
           delay={100}
@@ -25,6 +25,18 @@ const TechStack = () => {
         efficient solution. Balancing innovation with practicality ensures the
         chosen stack supports both development and long-term success.`}
         </TranslateAnimatedDiv>
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-10">
+          {Array(10)
+            .fill(0)
+            .map((_, idx) => (
+              <div
+                key={idx + 1}
+                className="max-w-[120px] w-full flex justify-center items-center aspect-square border-2 border-white"
+              >
+                Tech
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

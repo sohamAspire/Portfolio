@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect, useRef, ReactNode, RefObject } from "react";
 import { useTransition } from "@react-spring/web";
@@ -29,21 +29,35 @@ const TranslateAnimatedDiv = ({
   className,
   delay = 200,
   duration = 500,
+  direction = "vertical",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
+  direction?: "vertical" | "horizontal";
 }) => {
   const ref = useRef(null);
   const isVisible = useOnScreen(ref);
 
   const transitions = useTransition(isVisible ? [children] : [], {
-    from: { opacity: 0, transform: "translateY(100px)" },
-    enter: { opacity: 1, transform: "translateY(0px)" },
-    leave: { opacity: 0, transform: "translateY(100px)" },
+    from: {
+      opacity: 0,
+      transform:
+        direction == "vertical" ? "translateY(100px)" : "translateX(100px)",
+    },
+    enter: {
+      opacity: 1,
+      transform:
+        direction == "vertical" ? "translateY(0px)" : "translateX(0px)",
+    },
+    leave: {
+      opacity: 0,
+      transform:
+        direction == "vertical" ? "translateY(100px)" : "translateX(100px)",
+    },
     delay,
-    config: { tension: 200, friction: 20, duration: duration },
+    config: { tension: 800, friction: 20, duration: duration },
   });
 
   return (

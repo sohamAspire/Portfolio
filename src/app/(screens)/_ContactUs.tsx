@@ -16,7 +16,11 @@ const ContactUs = () => {
               <span className="text-[20px] bg-white text-black p-2 me-2">
                 &quot; Code
               </span>
-              like a warrior ,
+              like a
+              <span className="relative after:ms-2 ps-2 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:bottom-[-4px] after:left-0">
+                warrior
+              </span>{" "}
+              ,
             </span>
           </BoxReveal>
 
@@ -25,7 +29,11 @@ const ContactUs = () => {
               <span className="text-[20px] bg-white text-black p-2 me-2">
                 debug
               </span>
-              like a detective ,
+              like a
+              <span className="relative after:ms-2 ps-2 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:bottom-[-4px] after:left-0">
+                detective
+              </span>
+              ,
             </span>
           </BoxReveal>
 
@@ -35,7 +43,11 @@ const ContactUs = () => {
               <span className="text-[20px] bg-white text-black p-2 mx-2">
                 deliver
               </span>
-              like a champion .
+              like a
+              <span className="relative after:ms-2 ps-2 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:bottom-[-4px] after:left-0">
+                champion
+              </span>
+              .
             </span>
           </BoxReveal>
 
@@ -58,11 +70,11 @@ const ContactUs = () => {
             <h5 className="ps-2">Connect With Me</h5>
           </TranslateAnimatedDiv>
           <form className="flex flex-wrap justify-between pt-5 p-2 gap-5">
-            <TranslateAnimatedDiv delay={90}>
-              <Input type="text" placeholder="Name" className="flex-1" />
+            <TranslateAnimatedDiv delay={90} className="flex-1">
+              <Input type="text" placeholder="Name" />
             </TranslateAnimatedDiv>
-            <TranslateAnimatedDiv delay={110}>
-              <Input type="email" placeholder="Email" className="flex-1" />
+            <TranslateAnimatedDiv delay={110} className="flex-1">
+              <Input type="email" placeholder="Email" />
             </TranslateAnimatedDiv>
             <div className="grid w-full gap-2">
               <TranslateAnimatedDiv delay={130}>
@@ -80,7 +92,7 @@ const ContactUs = () => {
                 </p>
               </TranslateAnimatedDiv>
             </div>
-            <TranslateAnimatedDiv delay={150}>
+            <TranslateAnimatedDiv delay={150} className="w-full">
               <ShimmerButton className="shadow-2xl w-full">
                 <span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                   Submit
