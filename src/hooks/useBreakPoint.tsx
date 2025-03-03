@@ -20,6 +20,7 @@ export const useBreakpoint = () => {
   const [screenType, setScreenType] = useState(() => getScreenType(window.innerWidth));
 
   useEffect(() => {
+    if(!window) return
     const handleResize = () => {
       setScreenType(getScreenType(window.innerWidth));
     };

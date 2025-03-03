@@ -30,7 +30,7 @@ const Trail: React.FC<{
   });
 
   return (
-    <div className="w-fit flex flex-col">
+    <div className="w-fit pb-20 flex flex-col">
       {trail.map(({ height, ...style }, index) => (
         <AnimatedDiv
           key={index}
@@ -72,7 +72,9 @@ export default function HeroSection() {
 
   return (
     <div
-      className={"text-container min-h-screen relative"}
+      className={
+        "text-container min-h-screen relative w-screen overflow-hidden"
+      }
       onClick={() => set((state) => !state)}
     >
       <Meteors side="left" />
@@ -86,7 +88,7 @@ export default function HeroSection() {
         </span>
       </Trail>
 
-      <Parallax pages={1.2} className="scroller">
+      <Parallax pages={1.25} className="scroller">
         <ParallaxLayer offset={0.35} speed={0.5}>
           <div className="w-full h-full absolute left-0 bottom-[-32%] z-[-50]">
             <Image

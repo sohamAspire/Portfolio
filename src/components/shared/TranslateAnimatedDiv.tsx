@@ -30,35 +30,54 @@ const TranslateAnimatedDiv = ({
   delay = 200,
   duration = 500,
   direction = "vertical",
+  loop,
+  animation = "slide",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
   direction?: "vertical" | "horizontal";
+  loop?: boolean;
+  animation?: "fade" | "slide";
 }) => {
   const ref = useRef(null);
   const isVisible = useOnScreen(ref);
 
-  const transitions = useTransition(isVisible ? [children] : [], {
-    from: {
-      opacity: 0,
-      transform:
-        direction == "vertical" ? "translateY(100px)" : "translateX(100px)",
-    },
-    enter: {
-      opacity: 1,
-      transform:
-        direction == "vertical" ? "translateY(0px)" : "translateX(0px)",
-    },
-    leave: {
-      opacity: 0,
-      transform:
-        direction == "vertical" ? "translateY(100px)" : "translateX(100px)",
-    },
-    delay,
-    config: { tension: 800, friction: 20, duration: duration },
-  });
+  const transitions = useTransition(
+    isVisible && loop ? [children] : !loop ? [children] : [],
+    {
+      from: {
+        opacity: 0,
+        transform:
+          direction == "vertical" && animation == "slide"
+            ? "translateY(100px)"
+            : animation == "slide"
+            ? "translateX(100px)"
+            : undefined,
+      },
+      enter: {
+        opacity: 1,
+        transform:
+          direction == "vertical" && animation == "slide"
+            ? "translateY(0px)"
+            : animation == "slide"
+            ? "translateX(100px)"
+            : undefined,
+      },
+      leave: {
+        opacity: 0,
+        transform:
+          direction == "vertical" && animation == "slide"
+            ? "translateY(100px)"
+            : animation == "slide"
+            ? "translateX(100px)"
+            : undefined,
+      },
+      delay,
+      config: { tension: 800, friction: 20, duration: duration },
+    }
+  );
 
   return (
     <div ref={ref} className={className}>

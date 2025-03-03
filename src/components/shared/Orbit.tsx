@@ -40,7 +40,7 @@ const Orbit = () => {
   }, []);
 
   return (
-    <div className="flex md:mx-auto m-5 min-w-[200px] w-full md:w-[400px] aspect-square relative justify-center items-center bg-white text-black font-bold">
+    <div className="flex md:mx-auto md:m-5 min-w-[200px] w-full md:w-[400px] aspect-square justify-center items-center bg-white text-black font-bold">
       <OrbitingCircles radius={radius.outer} speed={0.2}>
         <TooltipWrapper content="React">
           <FaReact className="icon" />

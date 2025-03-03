@@ -8,7 +8,7 @@ import TranslateAnimatedDiv from "@/components/shared/TranslateAnimatedDiv";
 
 const ContactUs = () => {
   return (
-    <div className="w-full h-full flex flex-row sm:h-screen md:flex-row relative justify-between items-center">
+    <div className="w-full flex flex-col h-screen md:flex-row relative justify-between items-center">
       <div className="flex-1 w-full h-full bg-black flex items-center justify-center">
         <div className="text-white font-[1000] italic uppercase p-10 leading-[35px] flex flex-col gap-5">
           <BoxReveal boxColor={"#ffffff"} duration={0.25}>
@@ -19,7 +19,7 @@ const ContactUs = () => {
               like a
               <span className="relative after:ms-2 ps-2 after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-white after:bottom-[-4px] after:left-0">
                 warrior
-              </span>{" "}
+              </span>
               ,
             </span>
           </BoxReveal>
@@ -63,28 +63,32 @@ const ContactUs = () => {
       </div>
       <div className="flex-1 flex justify-center w-full h-full bg-white">
         <div className="flex flex-col items-start justify-center p-10">
-          <TranslateAnimatedDiv delay={50}>
-            <h5 className="ps-2">Let&apos;s Work Together Projects</h5>
+          <TranslateAnimatedDiv delay={50} loop={true}>
+            <h5 className="ps-2 font-bold uppercase text-[20px] md:text-[28px]">
+              Let&apos;s Work Together Projects
+            </h5>
           </TranslateAnimatedDiv>
-          <TranslateAnimatedDiv delay={70}>
-            <h5 className="ps-2">Connect With Me</h5>
+          <TranslateAnimatedDiv loop={true} delay={70}>
+            <h6 className="ps-2 font-bold uppercase text-[16px] md:text-[24px]">
+              Connect With Me
+            </h6>
           </TranslateAnimatedDiv>
           <form className="flex flex-wrap justify-between pt-5 p-2 gap-5">
-            <TranslateAnimatedDiv delay={90} className="flex-1">
+            <TranslateAnimatedDiv loop={true} delay={100} className="flex-1">
               <Input type="text" placeholder="Name" />
             </TranslateAnimatedDiv>
-            <TranslateAnimatedDiv delay={110} className="flex-1">
+            <TranslateAnimatedDiv loop={true} delay={200} className="flex-1">
               <Input type="email" placeholder="Email" />
             </TranslateAnimatedDiv>
             <div className="grid w-full gap-2">
-              <TranslateAnimatedDiv delay={130}>
+              <TranslateAnimatedDiv loop={true} delay={300}>
                 <Textarea
                   placeholder="Type your message here."
                   id="message"
                   rows={5}
                 />
               </TranslateAnimatedDiv>
-              <TranslateAnimatedDiv delay={150}>
+              <TranslateAnimatedDiv loop={true} delay={400}>
                 <p className="text-[14px] text-muted-foreground py-2">
                   Feel free to reach out with any questions, opportunities, or
                   collaborations. Your message will go directly to me, and
@@ -92,7 +96,7 @@ const ContactUs = () => {
                 </p>
               </TranslateAnimatedDiv>
             </div>
-            <TranslateAnimatedDiv delay={150} className="w-full">
+            <TranslateAnimatedDiv loop={true} delay={500} className="w-full">
               <ShimmerButton className="shadow-2xl w-full">
                 <span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                   Submit
